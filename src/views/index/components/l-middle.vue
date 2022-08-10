@@ -4,7 +4,7 @@
  * @Author: Linyer
  * @Date: 2021-08-10 09:05:23
  * @LastEditors: Linyer
- * @LastEditTime: 2022-08-10 15:59:51
+ * @LastEditTime: 2022-08-10 16:05:54
 -->
 <template>
   <div class="dimension">
@@ -248,7 +248,6 @@ export default defineComponent({
       }
     }
     return {
-      radioSelect: [],
       dictionary,
       skuField: [],
       dimensionForm: {
@@ -272,9 +271,7 @@ export default defineComponent({
             trigger: 'blur'
           }
         ]
-      },
-      spanArr: [],
-      pos: 0
+      }
     }
   },
   watch: {},
@@ -371,23 +368,7 @@ export default defineComponent({
         })
         this.dimensionForm.skuTable.push(item)
       }
-      // this.spanArr.length = 0;
-      // for (var i = 0; i < this.dimensionForm.skuTable.length; i++) {
-      //   if (i === 0) {
-      //     this.spanArr.push(1);
-      //     this.pos = 0;
-      //   } else {
-      //     // 判断当前元素与上一个元素是否相同
-      //     if (this.dimensionForm.skuTable[i].rkNum === this.dimensionForm.skuTable[i - 1].rkNum) {
-      //       this.spanArr[this.pos] += 1;
-      //       this.spanArr.push(0);
-      //     } else {
-      //       this.spanArr.push(1);
-      //       this.pos = i;
-      //     }
-      //   }
-      // }
-      console.log(',,', this.spanArr)
+
       console.log('[ this.dimensionForm.skuTable ]', this.dimensionForm.skuTable)
       // 生成表格头部信息
       for (let i = 0; i < this.selectDimension.length; i++) {
@@ -397,16 +378,7 @@ export default defineComponent({
         })
       }
     },
-    // cellMerge({ row, column, rowIndex, columnIndex }) {
-    // if (columnIndex === 0 || columnIndex === 1 || columnIndex === 2) {
-    //   const _row = this.spanArr[rowIndex];
-    //   const _col = _row > 0 ? 1 : 0;
-    //   return {
-    //     rowspan: _row,
-    //     colspan: _col,
-    //   };
-    // }
-    // },
+
     /**
      * 提交表格数据
      */
